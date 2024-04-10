@@ -1,0 +1,41 @@
+
+Задача 1.
+Вывести данные о товарах (проекция: название, цена со скидкой 0.5процента) по убыванию цены.
+
+SELECT 
+ProductName,
+Price * .95 AS Price_down
+FROM Products
+ORDER BY Price DESC
+
+Задача 2.
+
+Вывести товары в диапазоне цены от 50 до 200 EUR (проекция: название, цена с наценкой30процентов)
+по возрастанию цены.
+
+SELECT ProductName,
+Price * 1.30 AS Price_up
+FROM Products
+WHERE 
+Price BETWEEN 50 AND 200
+ORDER BY Price ASC
+
+Задача 3.
+Вывести всех клиентов, кроме тех, что из USA и UK.
+
+SELECT * 
+FROM Customers
+WHERE 
+NOT Country = 'USA'
+AND
+NOT Country = 'UK'
+
+Задача 4.
+
+Вывести товары из категорий 2 и 5 (проекция: все имеющиеся поля, цена в долларах)
+
+SELECT *,
+Price  Price_usa
+FROM Products
+WHERE 
+CategoryID IN (2, 5)
